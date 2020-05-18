@@ -21,18 +21,18 @@ public class Solution {
 
   public static BigInteger rec(BigInteger x) {
     // Your code here
-//    System.out.println("rec called for " + x);
-//    result.forEach((k,v) -> {
-//      System.out.println(k + "," + v);
-//    });
-//    System.out.println("----");
-    if(result.containsKey(x)) {
+    //    System.out.println("rec called for " + x);
+    //    result.forEach((k,v) -> {
+    //      System.out.println(k + "," + v);
+    //    });
+    //    System.out.println("----");
+    if (result.containsKey(x)) {
       return result.get(x);
     }
     BigInteger answer;
-    if(x.mod(TWO).equals(BigInteger.ZERO)) {
+    if (x.mod(TWO).equals(BigInteger.ZERO)) {
       answer = BigInteger.ONE.add(rec(x.divide(TWO)));
-    } else{
+    } else {
       answer = BigInteger.ONE.add(rec(x.subtract(BigInteger.ONE)).min(rec(x.add(BigInteger.ONE))));
     }
     result.put(x, answer);
